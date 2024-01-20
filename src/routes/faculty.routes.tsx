@@ -1,5 +1,5 @@
-import OfferedCourse from "../pages/courses/offeredCourse";
 import FacultyDashboard from "../pages/faculty/FacultyDashboard";
+import OfferedCourse from "../pages/courses/offeredCourse";
 
 export const facultyPaths = [
     {

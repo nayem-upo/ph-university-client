@@ -3,6 +3,7 @@ import Profile from "../pages/admin/AdminProfile";
 import CreateAdmin from "../pages/admin/CreateAdmin";
 import CreateFaculty from "../pages/admin/CreateFaculty";
 import CreateStudent from "../pages/admin/CreateStudent";
+import AcademinSemester from "../pages/admin/academicManagement/AcademinSemester";
 
 export const adminPaths = [
     {
@@ -36,7 +37,7 @@ export const adminPaths = [
         ]
     },
     {
-        name: "Semester Management",
+        name: "Academic Management",
         children: [
             {
                 name: "Create Semester",
@@ -48,6 +49,11 @@ export const adminPaths = [
                 path: "create-offered-course",
                 element: <CreateStudent />
             },
+            {
+                name: "Academic Semesters",
+                path: "academic-semesters",
+                element: <AcademinSemester />
+            }
         ]
     },
 ];

@@ -1,8 +1,8 @@
 import { jwtDecode } from "jwt-decode"
 
 export type TUserData = {
-    userId: string;
     role: string;
+    userId: string;
     iat: number;
     exp: number;
     token: string;

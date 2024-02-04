@@ -5,4 +5,4 @@ function App() {
   return (<ProtectedRoute><MainLayout /></ProtectedRoute>)
 }
 
-export default App
+export default App;

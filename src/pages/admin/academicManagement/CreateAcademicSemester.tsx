@@ -3,9 +3,12 @@ import { Button, Form, Select } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import { months } from './academicConstant';
 import { FieldValues, SubmitHandler } from 'react-hook-form';
+import { useCreateAcademicSemesterMutation } from '../../../redux/features/admin/academicManagementApi';
+import { toast } from 'sonner';
 
 const CreateAcademicSemester: React.FC = () => {
     const currentYear = new Date().getFullYear();
+    const [createAcademicSemester] = useCreateAcademicSemesterMutation();
     const yearOptions = Array.from({ length: 7 }, (_, i) => currentYear + i);
     const [form] = useForm();
 
@@ -40,7 +43,18 @@ const CreateAcademicSemester: React.FC = () => {
         return Promise.resolve();
     };
     const handleCreateSemester = async (values: SubmitHandler<FieldValues>) => {
-        console.log(values);
+        const toastId = toast.loading("Creating semester...");
+        try {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const result: any = await createAcademicSemester(values);
+            if (result?.data?.success) {
+                toast.success(`${result?.data?.message}`, { id: toastId })
+            } else {
+                toast.error(`${result?.error?.data?.message}`, { id: toastId })
+            }
+        } catch (err) {
+            toast.error("Something went wrong!")
+        }
     };
 
     return (
@@ -83,7 +97,7 @@ const CreateAcademicSemester: React.FC = () => {
                     >
                         <Select style={{ width: '100%' }}>
                             {yearOptions.map((yearOption) => (
-                                <Select.Option key={yearOption} value={yearOption}>
+                                <Select.Option key={yearOption} value={yearOption.toString()}>
                                     {yearOption}
                                 </Select.Option>
                             ))}
@@ -104,7 +118,7 @@ const CreateAcademicSemester: React.FC = () => {
 
                     <Form.Item
                         label="Start Month"
-                        name="start month"
+                        name="startMonth"
                         rules={[{ required: true, message: 'Please input start month!' }]}
                     >
                         <Select style={{ width: '100%' }}>
@@ -118,7 +132,7 @@ const CreateAcademicSemester: React.FC = () => {
 
                     <Form.Item
                         label="End Month"
-                        name="end month"
+                        name="endMonth"
                         rules={[
                             { required: true, message: 'Please input end month!' },
                             { validator: validateEndMonth },

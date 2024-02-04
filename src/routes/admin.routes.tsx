@@ -31,14 +31,14 @@ export const adminPaths = [
                 element: <CreateAcademicSemester />
             },
             {
-                name: "Create Offered Course",
-                path: "create-offered-course",
-                element: <CreateOfferedCourse />
-            },
-            {
                 name: "Academic Semesters",
                 path: "academic-semesters",
                 element: <AcademinSemester />
+            },
+            {
+                name: "Create Offered Course",
+                path: "create-offered-course",
+                element: <CreateOfferedCourse />
             },
             {
                 name: "Create Faculty",

@@ -7,3 +7,7 @@ export interface DataType {
     endMonth: string;
     _id: string;
 }
+export interface IFaculty {
+    name: string;
+    _id: string;
+}

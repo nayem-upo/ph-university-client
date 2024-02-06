@@ -1,8 +1,7 @@
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import Profile from "../pages/admin/AdminProfile";
-import CreateAdmin from "../pages/admin/CreateAdmin";
-import CreateFaculty from "../pages/admin/CreateFaculty";
-import CreateStudent from "../pages/admin/CreateStudent";
+import CreateAdmin from "../pages/admin/userManagement/CreateAdmin";
+import CreateStudent from "../pages/admin/userManagement/CreateStudent";
 import AcademicDepartment from "../pages/admin/academicManagement/AcademicDepartment";
 import AcademicFaculty from "../pages/admin/academicManagement/AcademicFaculty";
 import AcademinSemester from "../pages/admin/academicManagement/AcademinSemester";
@@ -36,11 +35,6 @@ export const adminPaths = [
                 element: <AcademinSemester />
             },
             {
-                name: "Create Offered Course",
-                path: "create-offered-course",
-                element: <CreateOfferedCourse />
-            },
-            {
                 name: "Create Faculty",
                 path: "create-academic-faculty",
                 element: <CreateAcademicFaculty />
@@ -60,6 +54,11 @@ export const adminPaths = [
                 path: "academic-department",
                 element: <AcademicDepartment />
             },
+            {
+                name: "Create Offered Course",
+                path: "create-offered-course",
+                element: <CreateOfferedCourse />
+            },
         ]
     },
     {
@@ -69,11 +68,6 @@ export const adminPaths = [
                 name: "Create Admin",
                 path: "create-admin",
                 element: <CreateAdmin />
-            },
-            {
-                name: "Create Faculty",
-                path: "create-faculty",
-                element: <CreateFaculty />
             },
             {
                 name: "Create Student",

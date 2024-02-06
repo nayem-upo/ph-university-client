@@ -59,7 +59,7 @@ const CreateAcademicSemester: React.FC = () => {
 
     return (
         <div>
-            <h1 style={{ marginBottom: '30px' }}>Create Academic Semester</h1>
+            <h1 className="text-xl font-semibold mb-8">Create Academic Semester</h1>
             <Form
                 form={form}
                 labelCol={{ span: 4 }}

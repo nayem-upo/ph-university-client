@@ -58,7 +58,7 @@ const AcademinSemester = () => {
                 columns={columns}
                 dataSource={semesterDataWithKeys}
                 bordered
-                title={() => 'Academic Semesters'}
+                title={() => <h1 className="text-xl font-semibold">Academic Semesters</h1>}
             />
         </div>
     );
